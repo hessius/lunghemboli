@@ -1,6 +1,7 @@
 :root {
   --f7-panel-right-width: 33%;
   --f7-block-strong-text-color: #000;
+  --f7-list-item-title-white-space: normal;
 }
 
 /* Invert navigation bars to fill style */
@@ -102,4 +103,7 @@ li i.f7-icons {
 }
 .hidden {
   display: none !important;
+}
+.list .item-title {
+  word-break: break-word;
 }
