@@ -17,7 +17,7 @@ const pesiColor = {
   2: '#2a9d8f',
   3: '#e9c46a',
   4: '#f4a261',
-  5: 'e76f51'
+  5: '#e76f51'
 }
 
 const gauge = app.gauge.get('.pesi-gauge')
