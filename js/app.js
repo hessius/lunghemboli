@@ -25,7 +25,15 @@ let numOr0 = n => (isNaN(n) ? 0 : n)
 let pesi = 0
 
 let updatePesi = () => {
-  if (!$$('#pesi-form input[name=age]')[0].value) return
+  if (!$$('#pesi-form input[name=age]')[0].value) {
+    $$('#result').hide()
+    $$('#noresult').show()
+    return
+  } else {
+    $$('#result').show()
+    $$('#noresult').hide()
+  }
+
   newPesi = numOr0(Number($$('#pesi-form input[name=age]')[0].value))
 
   $$('#pesi-form input:checked').forEach(
@@ -75,6 +83,21 @@ let updateTreatment = () => {
     //.removeClass('hidden')
     $$('#treatOut').hide()
   }
+  if (!pesi) {
+    $$('#pesiExpl').show()
+  } else {
+    $$('#pesiExpl').hide()
+  }
+  if (!radiology) {
+    $$('#radiologyExpl').show()
+  } else {
+    $$('#radiologyExpl').hide()
+  }
+  if (!patient) {
+    $$('#patientExpl').show()
+  } else {
+    $$('#patientExpl').hide()
+  }
   updateFollowUp()
 }
 
@@ -82,15 +105,16 @@ let updateFollowUp = () => {
   let age = numOr0(Number($$('#pesi-form input[name=age]')[0].value))
   let malignancy = $$('#malignancy input').prop('checked')
   $$(
-    '#cancerTreat, #cancerSVF, #cancerPV, #haemaCoagulation, #haemaDuration, #pvTreat, #addAge'
+    '#cancerTreat, #cancerSVF, #cancerPV, .PV, #haemaCoagulation, #haemaTreat, #pvTreat, #addAge'
   ).hide()
   //.removeClass('hidden')
 
   if (malignancy) {
-    $$(
-      '#screening-needed input, #svf-needed input, #length-uncertain input'
-    ).prop('checked', false)
-    $$('#screening-needed, #svf-needed, #length-uncertain').hide()
+    $$('#screening-needed input, #svf-needed input, #length-life input').prop(
+      'checked',
+      false
+    )
+    $$('#screening-needed, #svf-needed, #length-life').hide()
     //.removeClass('hidden')
     $$()
     $$('#cancerTreat').show()
@@ -100,33 +124,34 @@ let updateFollowUp = () => {
 
   let screeningNeeded = $$('#screening-needed input').prop('checked')
   let svfNeeded = $$('#svf-needed input').prop('checked')
-  let lengthUncertain = $$('#length-uncertain input').prop('checked')
+  let lengthLife = $$('#length-life input').prop('checked')
 
   if (screeningNeeded) {
     $$('#svf-needed').show()
-    $$('#length-uncertain').hide()
-    $$('#length-uncertain input').prop('checked', false)
     if (svfNeeded) {
       $$('#cancerSVF').show()
     } else {
-      $$('#cancerPV').show()
+      $$('#cancerPV, .PV').show()
     }
   } else if (!malignancy) {
     $$('#svf-needed').hide()
     $$('#svf-needed input').prop('checked', false)
   }
-  if (!malignancy && !screeningNeeded && age && age < 50) {
+  //if (!malignancy && !screeningNeeded && age && age < 50) {
+  if (!malignancy && age && age < 50) {
     $$('#haemaCoagulation').show()
-    $$('#length-uncertain').hide()
-    $$('#length-uncertain input').prop('checked', false)
-  } else if (!malignancy && !screeningNeeded && age && age > 49) {
-    $$('#length-uncertain').show()
-    if (lengthUncertain) {
-      $$('#haemaDuration').show()
+    $$('#length-life').hide()
+    $$('#length-life input').prop('checked', false)
+    //} else if (!malignancy && !screeningNeeded && age && age > 49) {
+  } else if (!malignancy && age && age > 49) {
+    $$('#length-life').show()
+    if (!lengthLife) {
+      $$('#haemaTreat').show()
     } else {
-      $$('#pvTreat').show()
+      $$('#pvTreat, .PV').show()
     }
-  } else if (!malignancy && !screeningNeeded && !age) {
+    //} else if (!malignancy && !screeningNeeded && !age) {
+  } else if (!malignancy && !age) {
     $$('#addAge').show()
   }
 }

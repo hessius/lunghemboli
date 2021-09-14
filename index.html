@@ -400,11 +400,16 @@
                         </li>
                         <li
                           class="item-content hidden animate__animated animate__bounceIn"
-                          id="length-uncertain"
+                          id="length-life"
                         >
                           <div class="item-inner">
                             <div class="item-title">
-                              Oklarhet kring behandlingslängd?
+                              Livslång behandling?
+                              <i
+                                class="f7-icons tooltip-init"
+                                data-tooltip="Tidigare VTE eller annat skäl."
+                                >info_circle_fill</i
+                              >
                             </div>
                             <div class="item-after">
                               <label class="toggle toggle-init color-blue">
@@ -421,9 +426,19 @@
               </div>
               <div class="col-5 medium-20 large-30"></div>
             </div>
-
             <div
+              id="noresult"
               class="block bg-color-darker-light-gray no-margin-bottom padding-vertical"
+            >
+              <div
+                class="block-title-large text-align-center padding-vertical color-red"
+              >
+                Resultat kan ej visas då ålder saknas.
+              </div>
+            </div>
+            <div
+              id="result"
+              class="block bg-color-darker-light-gray no-margin-bottom padding-vertical hidden"
             >
               <div class="block-title-large text-align-center padding-vertical">
                 Resultat
@@ -484,6 +499,20 @@
                         patient inte rekommenderas poliklinisering från
                         akutmottagningen.
                       </p>
+                      <p id="pesiExpl">
+                        Patienten har för hög PESI-poäng för att poliklinisering
+                        skall vara applicerbart enligt denna algoritm som
+                        använder 85 poäng som gränsvärde.
+                      </p>
+                      <p id="radiologyExpl">
+                        Den radiologiska bedömningen kan inte bekräfta att det
+                        rör sig om tillräckligt låg risk för att medge
+                        poliklinisering.
+                      </p>
+                      <p id="patientExpl">
+                        De praktiska faktorer som möjliggör säker
+                        poliklinisering är inte uppfyllda.
+                      </p>
                     </div>
                     <div
                       id="treatOut"
@@ -531,14 +560,20 @@
                         Ospecifika Symptom som kan vara förenliga med cancer".
                       </p>
                     </div>
-                    <div class="hidden" id="cancerPV">
-                      <p class="strong">
-                        Remiss till primärvården
+                    <p class="strong PV hidden">
+                      Remiss till primärvården
+                    </p>
+                    <div class="hidden" id="pvTreat">
+                      <p>
+                        Remiss skall skickas till primärvården för fortsatt
+                        uppföljning av AK-behandling.
                       </p>
+                    </div>
+                    <div class="hidden" id="cancerPV">
                       <p>
                         Remiss skall skickas till primärvården för basal
                         malignitetsutredning om låggradig misstanke finns eller
-                        enskild labvärde skall följas upp etc.
+                        följa upp enskilt labvärde etc.
                       </p>
                     </div>
                     <div class="hidden" id="haemaCoagulation">
@@ -550,22 +585,15 @@
                         koagulationsutredning.
                       </p>
                     </div>
-                    <div class="hidden" id="haemaDuration">
+                    <div class="hidden" id="haemaTreat">
                       <p class="strong">
                         Remiss till hematologen
                       </p>
                       <p>
-                        Remiss skall skickas till hematologmottagningen med
-                        frågeställning ställningstagande till behandlingslängd.
-                      </p>
-                    </div>
-                    <div class="hidden" id="pvTreat">
-                      <p class="strong">
-                        Remiss till primärvården
-                      </p>
-                      <p>
-                        Remiss skall skickas till primärvården för fortsatt
-                        uppföljning av AK-behandling.
+                        Remiss skall skickas till hematologmottagningen för
+                        uppföljning av AK-behandling. AK-blankett skall
+                        utfärdas. I första hand sker uppföljning endast av
+                        sjuksköterska.
                       </p>
                     </div>
                     <div class="hidden" id="addAge">
@@ -586,6 +614,19 @@
                   </div>
                 </div>
                 <div class="col-5 medium-20 large-30"></div>
+              </div>
+              <div class="row">
+                <div class="col-5 medium-35 large-40"></div>
+                <div class="col-90 medium-30 large-20">
+                  <button
+                    class="button button-fill color-red"
+                    style="margin-top:60px"
+                    onClick="javascript:location.reload()"
+                  >
+                    Återställ
+                  </button>
+                </div>
+                <div class="col-5 medium-35 large-40"></div>
               </div>
             </div>
           </div>
