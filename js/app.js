@@ -169,3 +169,27 @@ $$('form#followup-form').on('keyup keydown change', updateFollowUp)
 $$('.hidden')
   .hide()
   .removeClass('hidden')
+
+// Custom toggle
+
+$$('button.yes').on('click', function (e) {
+  $$(this)
+    .children('input')
+    .prop('checked', true)
+})
+$$('button.no').on('click', function (e) {
+  $$(this)
+    .siblings()
+    .children('input')
+    .prop('checked', false)
+})
+$$('.segmented button').on('click', function (e) {
+  e.preventDefault()
+  updateTreatment()
+  updateFollowUp()
+  updatePesi()
+  $$(this)
+    .siblings()
+    .removeClass('button-active')
+  $$(this).addClass('button-active')
+})

@@ -107,3 +107,8 @@ li i.f7-icons {
 .list .item-title {
   word-break: break-word;
 }
+
+/* Custom toggles */
+.button input {
+  display: none;
+}
