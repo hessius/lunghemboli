@@ -19,6 +19,7 @@
   --f7-tabbar-link-inactive-color: rgba(255, 255, 255, 0.54);
   --f7-sheet-border-color: transparent;
   --f7-tabbar-link-active-border-color: #fff;
+  --f7-tooltip-font-size: 18px;
 }
 .appbar,
 .navbar,
@@ -106,6 +107,10 @@ li i.f7-icons {
 }
 .list .item-title {
   word-break: break-word;
+}
+
+.title-sliding .tooltip-init {
+  font-size: 20px;
 }
 
 /* Custom toggles */
