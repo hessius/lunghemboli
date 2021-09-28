@@ -39,10 +39,17 @@
     />
     <link rel="stylesheet" href="css/icons.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <script>
+      // IE deprecation alert
+      if (window.navigator.userAgent.match(/MSIE|Trident/) !== null) {
+        alert(
+          'Du använder en gammal webbläsare som inte längre stöds. Öppna sidan i Edge / Chrome / Firefox / Safari eller annan valfri webbläsare.'
+        )
+      }
+    </script>
   </head>
   <body>
     <div id="app">
-      <!-- Your main view, should have "view-main" class -->
       <div class="view view-main view-init safe-areas">
         <div class="page color-theme-gray" data-name="home">
           <!-- Top Navbar -->
@@ -84,6 +91,11 @@
                           <div class="item-inner">
                             <div class="item-title">
                               Icke-central Lungemboli?
+                              <i
+                                class="f7-icons tooltip-init"
+                                data-tooltip="Central lungemboli innefattar tromb i truncus pulmonalis eller i a. pulmonalis."
+                                >info_circle_fill</i
+                              >
                             </div>
                             <div class="item-after">
                               <p class="segmented segmented-strong">

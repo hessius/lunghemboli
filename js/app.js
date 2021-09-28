@@ -193,8 +193,3 @@ $$('.segmented button').on('click', function (e) {
     .removeClass('button-active')
   $$(this).addClass('button-active')
 })
-if (window.navigator.userAgent.match(/MSIE|Trident/) !== null) {
-  alert(
-    'Du använder en gammal webbläsare som inte längre stöds. Öppna sidan i Edge / Chrome / Firefox / Safari eller annan valfri webbläsare.'
-  )
-}
