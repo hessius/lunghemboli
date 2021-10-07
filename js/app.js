@@ -81,13 +81,13 @@ let updateTreatment = () => {
     $$('form#patient-form input').length ==
     $$('form#patient-form input:checked').length
   if (radiology && pesi && patient) {
-    $$('#treatOut').show()
+    $$('#treatOut, #patientinfo').show()
     //.removeClass('hidden')
     $$('#treatIn').hide()
   } else {
     $$('#treatIn').show()
     //.removeClass('hidden')
-    $$('#treatOut').hide()
+    $$('#treatOut, #patientinfo').hide()
   }
   if (!pesi) {
     $$('#pesiExpl').show()
