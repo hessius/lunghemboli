@@ -12,7 +12,12 @@
   -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:; object-src *; child-src *; frame-src *"
+      content="
+      default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content: blob:; 
+      object-src * 'self' blob:; 
+      child-src * 'self' blob: data:; 
+      frame-src * 'self' blob: data:; 
+      img-src * 'self' blob: data:"
     />
     <meta
       name="viewport"
