@@ -851,7 +851,7 @@
                   <button
                     class="button button-fill color-red"
                     style="margin-top:60px"
-                    onClick="javascript:location.reload();"
+                    onClick="javascript:$$('.page-content').scrollTop(0,100);setTimeout(()=>location.reload(),101);"
                   >
                     Återställ
                   </button>
