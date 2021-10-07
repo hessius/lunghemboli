@@ -37,6 +37,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link rel="stylesheet" href="libs/printjs/print.min.css" />
     <link rel="stylesheet" href="css/icons.css" />
     <link rel="stylesheet" href="css/app.css" />
     <script>
@@ -807,6 +808,41 @@
                 <div class="col-0 small-5 medium-20 large-30"></div>
               </div>
               <div class="row">
+                <div class="col-0 small-5 medium-20 large-30"></div>
+                <div class="col-100 small-90 medium-60 large-40">
+                  <div class="block-title">Patientinformation</div>
+                  <div
+                    id="patientinfo"
+                    class="block block-strong medium-medium-inset animate__animated animate__bounceIn"
+                  >
+                    <p>
+                      Här kan du skriva ut patientinformation gällande
+                      behandling och skäl att uppsöka akut sjukvård. Innehållet
+                      i utskriften är uppdaterat för att återspegla
+                      rekommendationen i algoritmen. Du behöver manuellt fylla i
+                      val av antikoagulantiabehandling.
+                    </p>
+                    <p>
+                      <strong>
+                        OBS! Den skriftliga patientinformationen berör inte
+                        eventuell malignitetsutredning.
+                      </strong>
+                    </p>
+                    <p>
+                      <button
+                        id="printHema"
+                        class="button button-fill color-blue"
+                        type="button"
+                        onclick="printJS({printable:'assets/pdf/PI-PV.pdf', type:'pdf', showModal:true, modalMessage:'Hämtar dokument'})"
+                      >
+                        Skriv ut
+                      </button>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-0 small-5 medium-20 large-30"></div>
+              </div>
+              <div class="row">
                 <div class="col-0 small-5 medium-35 large-40"></div>
                 <div class="col-100 small-90 medium-30 large-20">
                   <button
@@ -867,6 +903,9 @@
 
     <!-- Framework7 library -->
     <script src="framework7/framework7-bundle.min.js"></script>
+
+    <!-- Print.JS library-->
+    <script src="libs/print.js"></script>
 
     <!-- App routes -->
     <script src="js/routes.js"></script>
