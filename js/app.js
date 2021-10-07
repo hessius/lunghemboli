@@ -202,4 +202,6 @@ $$('.segmented button').on('click', function (e) {
   $$(this).addClass('button-active')
 })
 let printPI = () => printPDF(`assets/pdf/${PIflavour}.pdf`)
-$$('input').val('')
+$$('input')
+  .val('')
+  .prop('checked', false)
