@@ -19,7 +19,13 @@ const pesiColor = {
   4: '#f4a261',
   5: '#e76f51'
 }
-
+function printPDF (url) {
+  let pdfFrame = document.body.appendChild(document.createElement('iframe'))
+  pdfFrame.style.display = 'none'
+  pdfFrame.onload = () => void pdfFrame.contentWindow.print()
+  pdfFrame.src = url
+}
+let PIflavour = 'PI-PV'
 const gauge = app.gauge.get('.pesi-gauge')
 let numOr0 = n => (isNaN(n) ? 0 : n)
 let pesi = 0
@@ -116,7 +122,7 @@ let updateFollowUp = () => {
     )
     $$('#screening-needed, #svf-needed, #length-life').hide()
     //.removeClass('hidden')
-    $$()
+    PIflavour = 'PI-ONK'
     $$('#cancerTreat').show()
   } else {
     $$('#screening-needed').show()
@@ -147,8 +153,10 @@ let updateFollowUp = () => {
     $$('#length-life').show()
     if (!lengthLife) {
       $$('#haemaTreat').show()
+      PIflavour = 'PI-HEMA'
     } else {
       $$('#pvTreat, .PV').show()
+      PIflavour = 'PI-PV'
     }
     //} else if (!malignancy && !screeningNeeded && !age) {
   } else if (!malignancy && !age) {
@@ -193,3 +201,4 @@ $$('.segmented button').on('click', function (e) {
     .removeClass('button-active')
   $$(this).addClass('button-active')
 })
+let printPI = () => printPDF(`assets/pdf/${PIflavour}.pdf`)
