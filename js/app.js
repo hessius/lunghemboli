@@ -148,12 +148,13 @@ let updateFollowUp = () => {
     $$('#haemaCoagulation').show()
     $$('#length-life').hide()
     $$('#length-life input').prop('checked', false)
+    PIflavour = 'PI-HEMA-BEH'
     //} else if (!malignancy && !screeningNeeded && age && age > 49) {
   } else if (!malignancy && age && age > 49) {
     $$('#length-life').show()
     if (!lengthLife) {
       $$('#haemaTreat').show()
-      PIflavour = 'PI-HEMA'
+      PIflavour = 'PI-HEMA-UTR'
     } else {
       $$('#pvTreat, .PV').show()
       PIflavour = 'PI-PV'
