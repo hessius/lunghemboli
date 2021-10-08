@@ -60,6 +60,14 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
+input {
+  user-select: all; /* supported by Chrome and Opera */
+  -webkit-user-select: all; /* Safari */
+  -khtml-user-select: all; /* Konqueror HTML */
+  -moz-user-select: all; /* Firefox */
+  -ms-user-select: all; /* Internet Explorer/Edge */
+}
+
 /* Left Panel right border when it is visible by breakpoint */
 .panel-right.panel-in-breakpoint:before {
   position: absolute;
