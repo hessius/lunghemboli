@@ -207,18 +207,25 @@ $$('input')
   .val('')
   .prop('checked', false)
 
-ISPname = ''
 let getISP = () => {
-  let url = 'http://ip-api.com/json'
+  let url = 'https://ipapi.co/json/'
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log('isp is ' + data.isp)
-      ISPname = data.isp
+      console.log('isp is ' + data.org)
+      updateInternalVisibility(data.org)
     })
     .catch(err => console.error(err))
 }
 
-getISP()
+let updateInternalVisibility = isp => {
+  if (isp == 'Vastmanlands Lans Landsting') {
+    $$('.internal').show()
+    console.log('internal')
+  } else {
+    $$('.internal').hide()
+    console.log('external')
+  }
+}
 
-// show "".internal" if ISPname is "Vastmanlands Lans Landsting"
+getISP()
