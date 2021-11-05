@@ -206,3 +206,19 @@ let printPI = () => printPDF(`assets/pdf/${PIflavour}.pdf`)
 $$('input')
   .val('')
   .prop('checked', false)
+
+ISPname = ''
+let getISP = () => {
+  let url = 'http://ip-api.com/json'
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log('isp is ' + data.isp)
+      ISPname = data.isp
+    })
+    .catch(err => console.error(err))
+}
+
+getISP()
+
+// show "".internal" if ISPname is "Vastmanlands Lans Landsting"
